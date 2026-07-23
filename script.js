@@ -1,0 +1,15 @@
+const c = window.SITE_CONFIG;
+document.querySelectorAll('[data-company]').forEach(el => el.textContent = c.companyName);
+document.querySelectorAll('[data-legal]').forEach(el => el.textContent = c.legalName);
+document.querySelectorAll('[data-location]').forEach(el => el.textContent = c.location);
+document.querySelectorAll('[data-email]').forEach(el => { el.textContent = c.email; el.href = `mailto:${c.email}?subject=Project inquiry`; });
+document.title = `${c.companyName} | AI & Data Analytics`;
+const nav = document.querySelector('.nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 24), {passive:true});
+const button = document.querySelector('.menu-button');
+const links = document.querySelector('.nav-links');
+button.addEventListener('click', () => { links.classList.toggle('open'); button.setAttribute('aria-expanded', links.classList.contains('open')); });
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+const observer = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelector('[data-year]').textContent = new Date().getFullYear();
