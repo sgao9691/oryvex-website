@@ -2,6 +2,6 @@
 window.SITE_CONFIG = {
   companyName: "Oryvex",
   legalName: "Oryvex Analytics LLC",
-  email: "hello@yourcompany.com",
+  email: "contact@oryvexdata.com",
   location: "Los Angeles, California"
 };
